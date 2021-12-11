@@ -5,10 +5,6 @@
         public int X { get; set; }
         public int Y { get; set; }
 
-        public Plateau()
-        {
-
-        }
         public Plateau(int x, int y)
         {
             X = x;

@@ -8,11 +8,6 @@ namespace MarsRover.Common.Models
         public Plateau Plateau { get; set; }
         public DirectionType DirectionType { get; set; }
 
-        public Rover()
-        {
-
-        }
-
         public Rover(Position position, Plateau plateau, DirectionType roverDirection)
         {
             Position = position;
