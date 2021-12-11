@@ -6,6 +6,6 @@ namespace MarsRover.Services.Abstracts
     public interface IRoverService
     {
         Rover Command(Rover rover, string commands);
-        string GetPosition(Position position, DirectionType direction);
+        string GetLastPosition(Position position, DirectionType direction);
     }
 }
