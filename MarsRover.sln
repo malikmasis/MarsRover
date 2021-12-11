@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3046E6B2-1890-4E5F-AD7B-7C8F8B5C02E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{3351F04F-DBE5-4B10-89B2-E25DCFBAA2DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{AB43F151-548E-4448-81F3-E4D98FF8F8C9}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		doc\Hepsiburada Case Study_Mars Rover.pdf = doc\Hepsiburada Case Study_Mars Rover.pdf
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarsRover", "src\MarsRover\MarsRover.csproj", "{AC1D24FC-3D72-4C83-B963-5B3ACFCDF044}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarsRover.Common", "src\MarsRover.Common\MarsRover.Common.csproj", "{166C2F84-5155-40A6-91AD-EA9406D22492}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarsRover.Services", "src\MarsRover.Services\MarsRover.Services.csproj", "{C2157C62-2798-4BA8-AE2C-FF0C543CD3BF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarsRover.UnitTest", "test\MarsRover.UnitTest\MarsRover.UnitTest.csproj", "{E05CC9AF-0D9F-4BC1-8334-F1DA7347AA99}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC1D24FC-3D72-4C83-B963-5B3ACFCDF044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC1D24FC-3D72-4C83-B963-5B3ACFCDF044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC1D24FC-3D72-4C83-B963-5B3ACFCDF044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC1D24FC-3D72-4C83-B963-5B3ACFCDF044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{166C2F84-5155-40A6-91AD-EA9406D22492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{166C2F84-5155-40A6-91AD-EA9406D22492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{166C2F84-5155-40A6-91AD-EA9406D22492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{166C2F84-5155-40A6-91AD-EA9406D22492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2157C62-2798-4BA8-AE2C-FF0C543CD3BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2157C62-2798-4BA8-AE2C-FF0C543CD3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2157C62-2798-4BA8-AE2C-FF0C543CD3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2157C62-2798-4BA8-AE2C-FF0C543CD3BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E05CC9AF-0D9F-4BC1-8334-F1DA7347AA99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E05CC9AF-0D9F-4BC1-8334-F1DA7347AA99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E05CC9AF-0D9F-4BC1-8334-F1DA7347AA99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E05CC9AF-0D9F-4BC1-8334-F1DA7347AA99}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AC1D24FC-3D72-4C83-B963-5B3ACFCDF044} = {3046E6B2-1890-4E5F-AD7B-7C8F8B5C02E1}
+		{166C2F84-5155-40A6-91AD-EA9406D22492} = {3046E6B2-1890-4E5F-AD7B-7C8F8B5C02E1}
+		{C2157C62-2798-4BA8-AE2C-FF0C543CD3BF} = {3046E6B2-1890-4E5F-AD7B-7C8F8B5C02E1}
+		{E05CC9AF-0D9F-4BC1-8334-F1DA7347AA99} = {3351F04F-DBE5-4B10-89B2-E25DCFBAA2DE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {885050E6-8081-46C7-B15C-07CBDC18EDFA}
+	EndGlobalSection
+EndGlobal
