@@ -3,10 +3,11 @@ using MarsRover.Common.Models;
 using MarsRover.Services.Abstracts;
 using MarsRover.Services.Concretes;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
+using Serilog;
 
 var collection = new ServiceCollection();
 collection.AddSingleton<IRoverService, RoverService>();
+collection.AddSingleton(Log.Logger);
 
 IServiceProvider _serviceProvider = collection.BuildServiceProvider();
 var log = _serviceProvider.GetService<ILogger>();
@@ -68,7 +69,7 @@ try
 }
 catch (Exception ex)
 {
-    log.LogError($"Met with the unhandled situation, {ex.Message}");
+    log.Error($"Met with the unhandled situation, {ex.Message}");
 }
 finally
 {

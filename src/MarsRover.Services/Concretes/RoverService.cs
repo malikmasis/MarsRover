@@ -1,7 +1,7 @@
 ﻿using MarsRover.Common.Enums;
 using MarsRover.Common.Models;
 using MarsRover.Services.Abstracts;
-using Microsoft.Extensions.Logging;
+using ILogger = Serilog.ILogger;
 
 namespace MarsRover.Services.Concretes
 {

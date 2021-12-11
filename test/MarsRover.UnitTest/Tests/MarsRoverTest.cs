@@ -4,8 +4,8 @@ using MarsRover.Common.Enums;
 using MarsRover.Common.Models;
 using MarsRover.Services.Concretes;
 using MarsRover.UnitTest.Data;
-using Microsoft.Extensions.Logging;
 using Moq;
+using Serilog;
 using Xunit;
 
 namespace MarsRover.UnitTest.Tests
