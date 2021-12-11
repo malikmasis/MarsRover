@@ -6,11 +6,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 
 var collection = new ServiceCollection();
-collection.AddSingleton<IRoverService, RoverService>();
 collection.AddSingleton(Log.Logger);
+collection.AddSingleton<IRoverService, RoverService>();
 
 IServiceProvider _serviceProvider = collection.BuildServiceProvider();
 var log = _serviceProvider.GetService<ILogger>();
+
+var richedRover = _serviceProvider.GetRequiredService<IRoverService>();
 
 try
 {
@@ -19,11 +21,16 @@ try
     var plateauWidth = Console.ReadLine();
     var plateauHeight = Console.ReadLine();
 
+    if (!int.TryParse(plateauWidth, out int plateauX))
+    {
+        log!.Information($"{nameof(plateauX)} is zero");
+    }
+    if(!int.TryParse(plateauHeight, out int plateauY))
+    {
+        log!.Information($"{nameof(plateauY)} is zero");
+    }
 
-    int.TryParse(plateauWidth, out int plateauX);
-    int.TryParse(plateauHeight, out int plateauY);
-
-    var plateau = new Plateau(plateauX, plateauY);
+    Plateau plateau = new(plateauX, plateauY);
 
     while (true)
     {
@@ -32,36 +39,41 @@ try
         var positionXInput = Console.ReadLine();
         var positionYInput = Console.ReadLine();
 
-        int.TryParse(positionXInput, out int positionX);
-        int.TryParse(positionYInput, out int positionY);
+        if (!int.TryParse(positionXInput, out int positionX))
+        {
+            log!.Information($"{nameof(positionX)} is zero");
+        }
+        if (!int.TryParse(positionYInput, out int positionY))
+        {
+            log!.Information($"{nameof(positionY)} is zero");
+        }
+
 
         Console.WriteLine("Please enter poisition of the rover");
 
         var plateauDirectionInput = Console.ReadLine();
-        char.TryParse(plateauDirectionInput, out char plateauDirection);
 
-        var directionType = (DirectionType)Enum.ToObject(typeof(DirectionType), plateauDirection);
-
-        var rover = new Rover()
+        if(!char.TryParse(plateauDirectionInput, out char plateauDirection))
         {
-            Plateau = plateau,
-            Position = new Position(positionX, positionY),
-            DirectionType = directionType
-        };
+            plateauDirection = 'N';
+        }
+
+        DirectionType directionType = (DirectionType)Enum.ToObject(typeof(DirectionType), plateauDirection);
+
+        Rover rover = new(new(positionX, positionY), plateau, directionType);
 
         Console.WriteLine("Please enter the command list of char");
         var command = Console.ReadLine();
 
-        RoverService firstRover = new RoverService(log);
-        rover = firstRover.Command(rover, command);
+        rover = richedRover.Command(rover, command!);
 
         Console.WriteLine(Environment.NewLine);
         Console.WriteLine("Output");
-        firstRover.GetPosition(rover.Position, rover.DirectionType);
+        richedRover.GetLastPosition(rover.Position, rover.DirectionType);
 
         Console.WriteLine("To continue, please enter Y/y");
         var isContinue = Console.ReadLine();
-        if (!isContinue.Equals("Y", StringComparison.InvariantCultureIgnoreCase))
+        if (!isContinue!.Equals("Y", StringComparison.InvariantCultureIgnoreCase))
         {
             break;
         }
@@ -69,7 +81,7 @@ try
 }
 catch (Exception ex)
 {
-    log.Error($"Met with the unhandled situation, {ex.Message}");
+    log!.Error($"Met with the unhandled situation, {ex.Message}");
 }
 finally
 {
